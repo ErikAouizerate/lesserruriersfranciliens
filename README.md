@@ -2,7 +2,7 @@
 
 Static showcase site: Vite + React + TypeScript, Tailwind CSS v4 + shadcn/ui (Base UI),
 React Router. Every route is prerendered to static HTML at build time for SEO, then hydrated.
-Deployed to GitHub Pages on `www.lesserruriersfranciliens.com`.
+Deployed to GitHub Pages on `www.lesserruriersfranciliens.fr`.
 
 See [NOTES.md](NOTES.md) (what is left to do) and [QUESTIONS.md](QUESTIONS.md).
 

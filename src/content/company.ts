@@ -6,12 +6,13 @@ import { Award, BadgeEuro, Clock, FileCheck } from 'lucide-react';
 export const company = {
   name: 'Les Serruriers Franciliens',
   tagline: 'Serrurerie & blindage en Île-de-France',
-  phone: '01 70 07 20 00',
-  phoneHref: 'tel:+33170072000',
-  phoneE164: '+33170072000',
+  // TODO: number to be validated by the client (see NOTES.md).
+  phone: '07 88 80 46 56',
+  phoneHref: 'tel:+33788804656',
+  phoneE164: '+33788804656',
   email: 'serruriersfranciliens@gmail.com',
-  // Number used by the WhatsApp button of the current site.
-  whatsappHref: 'https://wa.me/33630935288',
+  // Same mobile number as the phone (calls and WhatsApp).
+  whatsappHref: 'https://wa.me/33788804656',
   hours: '7 jours sur 7, de 8h à 22h',
   hoursShort: '7j/7 · 8h–22h',
   zone: 'Toute l’Île-de-France',
@@ -25,13 +26,20 @@ export const company = {
     { code: '94', name: 'Val-de-Marne' },
     { code: '95', name: 'Val-d’Oise' },
   ],
-  // TODO: legal information for the "mentions légales" page.
+  // Source: Annuaire des Entreprises (INSEE / INPI), checked 2026-11-11.
   legal: {
-    legalName: '[Raison sociale à compléter]',
-    legalForm: '[Forme juridique et capital à compléter]',
-    address: '[Adresse du siège à compléter]',
-    siret: '[SIRET à compléter]',
-    vat: '[N° TVA intracommunautaire à compléter]',
+    legalName: 'LES SERRURIERS FRANCILIENS',
+    legalForm: 'SAS (société par actions simplifiée) au capital de 1 200 €',
+    address: '60 rue François Ier, 75008 Paris',
+    streetAddress: '60 rue François Ier',
+    postalCode: '75008',
+    city: 'Paris',
+    siren: '994 060 275',
+    siret: '994 060 275 00017',
+    vat: 'FR33 994 060 275',
+    registry: 'Immatriculée au Registre national des entreprises (RNE) le 4 décembre 2025',
+    naf: '43.32B – Travaux de menuiserie métallique et serrurerie',
+    // TODO: still to confirm (see QUESTIONS.md).
     director: '[Directeur de la publication à compléter]',
     insurance: '[Assureur RC Pro / décennale à compléter]',
   },

@@ -3,10 +3,10 @@
 Things only you can do, in rough priority order. Open questions are in [QUESTIONS.md](QUESTIONS.md).
 
 ## Before going live
-- [ ] Answer the legal questions in QUESTIONS.md, then fill `company.legal` in
-      `src/content/company.ts` (shown on `/mentions-legales`).
-- [ ] Add the head office `address` to the LocalBusiness JSON-LD in `src/content/seo.ts`
-      (search for `TODO`).
+- [ ] **Validate the contact number +33 7 88 80 46 56** (calls and WhatsApp), now used
+      everywhere on the site (`src/content/company.ts`) and in `public/og-image.png`.
+- [ ] Fill the two remaining legal fields in `company.legal` (`src/content/company.ts`):
+      publication director and insurer. Company identity, address, SIRET and VAT are done.
 - [ ] Create a Web3Forms key (https://web3forms.com, with serruriersfranciliens@gmail.com):
   - [ ] locally: `.env` → `VITE_WEB3FORMS_KEY=...`
   - [ ] GitHub: Settings → Secrets and variables → Actions → `VITE_WEB3FORMS_KEY`
@@ -21,19 +21,27 @@ Things only you can do, in rough priority order. Open questions are in [QUESTION
 - [ ] Proofread all texts in `src/content/` and the pages (especially FAQ legal statements).
 
 ## Deployment (GitHub Pages)
-- [ ] Create the GitHub repository and push `main`.
+- [x] Create the GitHub repository and push `main`.
 - [ ] Settings → Pages → Source: **GitHub Actions**.
-- [ ] Settings → Pages → Custom domain: `www.lesserruriersfranciliens.com`, enable HTTPS.
-- [ ] DNS at the registrar:
-  - `www` → CNAME → `<github-user>.github.io`
-  - apex → A records 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-- [ ] Switch the domain off Squarespace only once the new site is live.
+- [ ] Settings → Pages → Custom domain: `www.lesserruriersfranciliens.fr`, enable HTTPS.
+- [ ] OVH → domain `lesserruriersfranciliens.fr` → **DNS zone** (the zone already exists, do
+      not order a new one). Check the **DNS servers** tab uses OVH servers, then:
+  - delete the existing `A` / `AAAA` / `CNAME` records of the apex and `www` (keep MX/TXT);
+  - apex → 4 `A` records: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
+  - `www` → `CNAME` → `erikaouizerate.github.io.`
+- [ ] If you still own `lesserruriersfranciliens.com` (old Squarespace site): redirect it to
+      `https://www.lesserruriersfranciliens.fr` once the new site is live, so its search
+      ranking carries over.
+- [ ] **OVH**: update the contact information (phone +33 7 88 80 46 56, e-mail, address
+      60 rue François Ier, 75008 Paris) on the OVH account / domain contacts.
 
 ## SEO after launch
-- [ ] Google Search Console: add the domain, submit `https://www.lesserruriersfranciliens.com/sitemap.xml`.
+- [ ] Google Search Console: add the domain, submit `https://www.lesserruriersfranciliens.fr/sitemap.xml`.
 - [ ] Bing Webmaster Tools: import from Search Console.
-- [ ] Google Business Profile: create/claim it (service-area business, Île-de-France), same
-      name / phone / hours as the site, link to the site. Biggest lever for local search.
+- [ ] Google Business Profile: create/claim it, same name / phone / hours as the site, link to
+      the site. Biggest lever for local search. If 60 rue François Ier is a domiciliation
+      address (no premises receiving clients), declare a **service-area business** and hide the
+      address: Google suspends profiles showing a domiciliation address.
 - [ ] Ask satisfied clients (syndics, bailleurs) for Google reviews.
 - [ ] Test structured data: https://search.google.com/test/rich-results
 - [ ] Old URLs `/depannage`, `/installation`, `/contacts` redirect to the new pages

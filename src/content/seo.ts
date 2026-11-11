@@ -5,7 +5,7 @@ import { services } from './services';
 import { zones } from './zones';
 
 // Canonical origin. Must match public/CNAME.
-export const siteUrl = 'https://www.lesserruriersfranciliens.com';
+export const siteUrl = 'https://www.lesserruriersfranciliens.fr';
 
 export type PageMeta = {
   path: string;
@@ -128,7 +128,16 @@ function localBusiness() {
     email: company.email,
     description:
       'Serrurerie, dépannage et blindage de portes pour les syndics de copropriété, bailleurs, gestionnaires de biens et particuliers en Île-de-France.',
-    // TODO: add "address" (PostalAddress) once the head office address is confirmed.
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: company.legal.streetAddress,
+      postalCode: company.legal.postalCode,
+      addressLocality: company.legal.city,
+      addressRegion: 'Île-de-France',
+      addressCountry: 'FR',
+    },
+    vatID: company.legal.vat.replace(/\s/g, ''),
+    foundingDate: '2025-11-12',
     areaServed: [
       { '@type': 'State', name: 'Île-de-France' },
       ...zones.map((z) => ({ '@type': 'AdministrativeArea', name: `${z.name} (${z.code})` })),

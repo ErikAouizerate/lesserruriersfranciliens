@@ -94,7 +94,7 @@ export function Footer() {
 
       <div className="container-site mt-12 flex flex-wrap justify-between gap-3 border-t border-white/12 pt-5 text-xs text-white/55">
         <span>
-          © {new Date().getFullYear()} {company.name}
+          © {new Date().getFullYear()} {company.name} · SAS · SIRET {company.legal.siret}
         </span>
         <Link to="/mentions-legales" className={linkClass}>
           Mentions légales

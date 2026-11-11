@@ -6,22 +6,18 @@ When you answer an open question, move it to "Answered" with the answer.
 ## Open
 
 ### Legal (blocking: required by law before going live)
-- [ ] Legal name, legal form and share capital?
-- [ ] Head office address? (also needed for Google Business Profile and the `address` of the
-      LocalBusiness structured data)
-- [ ] SIRET and intra-EU VAT number?
-- [ ] Publication director (name)?
+- [ ] Publication director (name of the SAS president)?
 - [ ] RC Pro / décennale insurer (name, policy number)? The "Garanties" block on `/entreprise`
       states "Assurance responsabilité civile professionnelle": confirm or remove.
 
 ### Contact
-- [ ] WhatsApp number: the old site uses **06 30 93 52 88** for its button but
-      **07 88 80 46 56** in its settings. Which one? (currently 06 30 93 52 88)
-- [ ] Domain: canonical URLs use **www.lesserruriersfranciliens.com** (like the old site).
-      OK, or should it be the bare domain?
+- [ ] Do you still own `lesserruriersfranciliens.com` (old site)? If yes, it should redirect
+      to the `.fr`.
 
 ### Company (`/entreprise`)
-- [ ] Key figures: years of experience, buildings served, interventions per year?
+- [ ] Key figures: buildings served, interventions per year? The company was created in
+      November 2025, so "années d'expérience" should be the team's experience, not the
+      company's age (or remove that figure).
 - [ ] Short history: founding year, founders, team size?
 
 ### Skills (`/competences`)
@@ -42,7 +38,7 @@ When you answer an open question, move it to "Answered" with the answer.
 
 | Question | Answer |
 |---|---|
-| Hosting | GitHub Pages, custom domain `lesserruriersfranciliens.com` |
+| Hosting | GitHub Pages, custom domain `www.lesserruriersfranciliens.fr` (OVH); bare domain redirects to www |
 | Contact form | Web3Forms (key to create), `mailto:` fallback without a key |
 | Show prices? | No: free quote and guaranteed prices only |
 | B2B targets | Syndics / copropriétés and bailleurs / gestionnaires |
@@ -50,3 +46,8 @@ When you answer an open question, move it to "Answered" with the answer.
 | Réalisations | 6 example cases for now, to be replaced by real projects |
 | Service area | All of Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) |
 | Design stack | Tailwind CSS + shadcn/ui |
+| Legal identity | LES SERRURIERS FRANCILIENS, SAS au capital de 1 200 €, created 12/11/2025, RNE 04/12/2025 |
+| Phone & WhatsApp | +33 7 88 80 46 56, single number for the whole site (replaces 01 70 07 20 00 and 06 30 93 52 88), to be validated |
+| Head office | 60 rue François Ier, 75008 Paris |
+| SIREN / SIRET / VAT | 994 060 275 / 994 060 275 00017 / FR33 994 060 275 |
+| NAF | 43.32B – Travaux de menuiserie métallique et serrurerie |

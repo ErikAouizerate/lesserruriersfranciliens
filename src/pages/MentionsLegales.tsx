@@ -20,9 +20,13 @@ export default function MentionsLegales() {
             <br />
             {legal.address}
             <br />
-            SIRET : {legal.siret}
+            SIREN : {legal.siren} · SIRET : {legal.siret}
             <br />
-            TVA : {legal.vat}
+            N° TVA intracommunautaire : {legal.vat}
+            <br />
+            {legal.registry}
+            <br />
+            Code NAF : {legal.naf}
             <br />
             Téléphone : {company.phone} · E-mail : {company.email}
           </p>
