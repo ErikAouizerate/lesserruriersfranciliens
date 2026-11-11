@@ -15,9 +15,10 @@ Things only you can do, in rough priority order. Open questions are in [QUESTION
   - [ ] key figures `XX` on `/entreprise` (`src/pages/Entreprise.tsx`);
   - [ ] the 6 example cases in `src/content/realisations.ts`, then remove the
         "Exemples illustratifs" notice in `src/pages/Realisations.tsx`.
-- [ ] Images: generate or shoot them (prompts in `build_docs/images-prompts.md`), put them in
-      `public/images/`, set `src` in `src/content/images.ts`. Use real photos for
-      réalisations and the team.
+- [x] Images: all 15 slots generated with fal (Nano Banana 2.1, prompts in
+      `build_docs/images-prompts.md`), in `public/images/<slot-id>.webp`.
+- [ ] Replace the AI images of réalisations (`realisation-*.webp`) and the workshop
+      (`entreprise-atelier.webp`) with real photos.
 - [ ] Proofread all texts in `src/content/` and the pages (especially FAQ legal statements).
 
 ## Deployment (GitHub Pages)

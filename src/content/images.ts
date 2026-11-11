@@ -1,5 +1,5 @@
-// Image slots. Each slot renders a placeholder until `src` is set.
-// Drop the file in public/images/ and set src: '/images/<file>'.
+// Image slots. Each slot's image is public/images/<id>.webp.
+// Set `src` to undefined on a slot to show the labelled placeholder instead.
 // Prompts for each slot: build_docs/images-prompts.md
 
 export type ImageSlot = {
@@ -15,6 +15,7 @@ const slot = (id: string, ratio: string, alt: string, hint: string): ImageSlot =
   ratio,
   alt,
   hint,
+  src: `/images/${id}.webp`,
 });
 
 export const images = {
