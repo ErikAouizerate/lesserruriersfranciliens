@@ -1,6 +1,6 @@
 // Prerenders every route to static HTML after `vite build` (client) and
-// `vite build --ssr` (server). Also writes 404.html, legacy redirects, sitemap.xml
-// and robots.txt. Run with Node >= 23 (native TypeScript type stripping).
+// `vite build --ssr` (server). Also writes 404.html, legacy redirects, sitemap.xml,
+// robots.txt and llms.txt. Run with Node >= 23 (native TypeScript type stripping).
 import { readFile, writeFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -12,6 +12,7 @@ type ServerEntry = {
   notFoundMeta: PageMeta;
   legacyRedirects: Record<string, string>;
   renderHeadTags: (meta: PageMeta) => string;
+  renderLlmsTxt: () => string;
   siteUrl: string;
   absoluteUrl: (path: string) => string;
 };
@@ -70,5 +71,7 @@ await writeFile(
   `User-agent: *\nAllow: /\n\nSitemap: ${entry.siteUrl}/sitemap.xml\n`,
 );
 
+await writeFile(path.join(dist, 'llms.txt'), entry.renderLlmsTxt());
+
 await rm(serverDir, { recursive: true, force: true });
-console.log('sitemap.xml, robots.txt, 404.html written');
+console.log('sitemap.xml, robots.txt, llms.txt, 404.html written');

@@ -240,3 +240,38 @@ export function renderHeadTags(meta: PageMeta): string {
     .filter(Boolean)
     .join('\n    ');
 }
+
+// ---------- llms.txt (https://llmstxt.org) ----------
+
+export function renderLlmsTxt(): string {
+  const link = (p: PageMeta) => `- [${p.label}](${absoluteUrl(p.path)}): ${p.description}`;
+  const indexed = pages.filter((p) => !p.noindex);
+  const legal = pages.filter((p) => p.noindex);
+  const { legal: l } = company;
+  return [
+    `# ${company.name}`,
+    '',
+    `> Entreprise de serrurerie et de blindage de portes en Île-de-France, au service des syndics de copropriété, bailleurs, gestionnaires de biens et particuliers. Dépannage, ouverture de porte, changement de serrure et de cylindre, blindage. Devis gratuit, intervention ${company.hours}.`,
+    '',
+    `- Téléphone et WhatsApp : ${company.phone} (${company.phoneE164})`,
+    `- E-mail : ${company.email}`,
+    `- Horaires : ${company.hours}`,
+    `- Zone d’intervention : ${company.departments.map((d) => `${d.name} (${d.code})`).join(', ')}`,
+    `- Siège : ${l.address} · SIRET ${l.siret} · TVA ${l.vat}`,
+    '',
+    '## Pages',
+    '',
+    ...indexed.map(link),
+    '',
+    '## Prestations',
+    '',
+    ...services.flatMap((s) =>
+      s.items.map((i) => `- [${i.title}](${absoluteUrl('/competences')}#${s.id}): ${i.text}`),
+    ),
+    '',
+    '## Optional',
+    '',
+    ...legal.map(link),
+    '',
+  ].join('\n');
+}
