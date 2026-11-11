@@ -1,0 +1,17 @@
+import { processSteps } from '@/content/company';
+
+export function ProcessSteps() {
+  return (
+    <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      {processSteps.map((step, i) => (
+        <li key={step.title} className="border-t-[3px] border-brand pt-5">
+          <span className="mb-2 block font-heading text-5xl leading-none text-brand" aria-hidden>
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <h3 className="mb-2 text-2xl">{step.title}</h3>
+          <p className="text-sm text-muted-foreground">{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}

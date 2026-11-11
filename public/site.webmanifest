@@ -1,0 +1,9 @@
+{
+  "name": "Les Serruriers Franciliens",
+  "short_name": "Serruriers Franciliens",
+  "icons": [{ "src": "/logo.png", "sizes": "320x320", "type": "image/png" }],
+  "theme_color": "#ff6b00",
+  "background_color": "#ffffff",
+  "display": "browser",
+  "lang": "fr"
+}

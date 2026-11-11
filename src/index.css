@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Self-hosted fonts (no request to Google: faster and GDPR-friendly). */
+@import "@fontsource/poppins/latin-400.css";
+@import "@fontsource/poppins/latin-500.css";
+@import "@fontsource/poppins/latin-600.css";
+@import "@fontsource/poppins/latin-700.css";
+@import "@fontsource/teko/latin-500.css";
+@import "@fontsource/teko/latin-600.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Teko", "Arial Narrow", sans-serif;
+
+  /* Brand colors (in addition to the shadcn tokens below). */
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-anthracite: var(--anthracite);
+  --color-ink: var(--ink);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --brand: oklch(0.696 0.204 43.5); /* #ff6b00 */
+  --brand-ink: oklch(0.55 0.16 44); /* accessible orange for text on light backgrounds */
+  --cream: oklch(0.973 0.017 62); /* #fff3e8 */
+  --paper: oklch(0.981 0.005 75); /* #faf8f5 */
+  --anthracite: oklch(0.277 0 0); /* #2b2b2b */
+  --ink: oklch(0.218 0 0); /* #1d1d1d */
+
+  --background: oklch(1 0 0);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--brand);
+  --primary-foreground: var(--ink);
+  --secondary: var(--cream);
+  --secondary-foreground: var(--brand-ink);
+  --muted: var(--paper);
+  --muted-foreground: oklch(0.46 0 0);
+  --accent: var(--cream);
+  --accent-foreground: var(--brand-ink);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.91 0.01 70);
+  --input: oklch(0.85 0.01 70);
+  --ring: var(--brand);
+  --radius: 0.5rem;
+}
+
+/* Dark sections (class="dark" on a section) reuse shadcn components with inverted tokens. */
+.dark {
+  --background: var(--anthracite);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.32 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.32 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.35 0 0);
+  --secondary-foreground: var(--brand);
+  --muted: oklch(0.32 0 0);
+  --muted-foreground: oklch(0.985 0 0 / 72%);
+  --accent: oklch(0.35 0 0);
+  --accent-foreground: var(--brand);
+  --brand-ink: var(--brand);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 20%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth font-sans antialiased;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-heading leading-none font-semibold tracking-[0.01em] uppercase;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@utility container-site {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 74rem;
+  padding-inline: 1.25rem;
+}
