@@ -12,7 +12,7 @@ export function Footer() {
       <div className="container-site grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="mb-4 flex items-center gap-3 font-heading text-[1.7rem] leading-none text-white uppercase">
-            <img src="/logo.png" alt="" width={48} height={48} className="size-12" loading="lazy" />
+            <img src="/logo-96.png" alt="" width={48} height={48} className="size-12" loading="lazy" />
             {company.name}
           </div>
           <p className="text-sm text-white/65">

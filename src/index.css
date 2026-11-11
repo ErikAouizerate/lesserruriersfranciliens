@@ -10,10 +10,20 @@
 @import "@fontsource/teko/latin-500.css";
 @import "@fontsource/teko/latin-600.css";
 
+/* Metric-matched fallback: limits layout shift while Poppins loads (CLS). */
+@font-face {
+  font-family: "Poppins Fallback";
+  src: local("Arial");
+  size-adjust: 112%;
+  ascent-override: 93.75%;
+  descent-override: 31.25%;
+  line-gap-override: 8.93%;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", "Poppins Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Teko", "Arial Narrow", sans-serif;
 
   /* Brand colors (in addition to the shadcn tokens below). */

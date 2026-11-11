@@ -15,6 +15,8 @@ export function ImagePlaceholder({ slot, className, priority }: Props) {
       <img
         className={cn('w-full rounded-lg object-cover', className)}
         src={slot.src}
+        srcSet={`${slot.src.replace(/\.webp$/, '-800.webp')} 800w, ${slot.src} 1600w`}
+        sizes="(min-width: 1024px) 560px, calc(100vw - 40px)"
         alt={slot.alt}
         style={{ aspectRatio: slot.ratio }}
         loading={priority ? 'eager' : 'lazy'}

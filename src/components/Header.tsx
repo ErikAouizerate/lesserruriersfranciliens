@@ -9,11 +9,12 @@ import { cn } from '@/lib/utils';
 
 function Brand() {
   return (
-    <Link to="/" className="mr-auto flex items-center gap-2.5" aria-label={`${company.name}, accueil`}>
-      <img src="/logo.png" alt="" width={44} height={44} className="size-11" />
+    <Link to="/" className="mr-auto flex items-center gap-2.5" >
+      <img src="/logo-96.png" alt="" width={44} height={44} className="size-11" />
       <span className="flex flex-col font-heading text-[1.45rem] leading-[0.85] font-semibold uppercase">
         <span>Les Serruriers</span>
         <span className="text-brand-ink">Franciliens</span>
+        <span className="sr-only">, accueil</span>
       </span>
     </Link>
   );
