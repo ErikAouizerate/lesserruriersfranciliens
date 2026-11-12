@@ -109,7 +109,7 @@ export default function Home() {
             },
           ].map(({ slot, icon: Icon, tag, title, text, to, cta }) => (
             <Card key={tag} className="gap-0 py-0">
-              <ImagePlaceholder slot={slot} className="rounded-none" />
+              <ImagePlaceholder slot={slot} className="rounded-none" sizes="(min-width: 1184px) 560px, (min-width: 768px) calc(50vw - 32px), calc(100vw - 40px)" />
               <CardContent className="p-7">
                 <Badge variant="secondary" className="mb-4 h-6 px-2.5 uppercase">
                   <Icon aria-hidden />
@@ -206,7 +206,7 @@ export default function Home() {
         <div data-reveal="stagger" className="grid gap-6 md:grid-cols-3">
           {realisations.slice(0, 3).map((r) => (
             <article key={r.id}>
-              <ImagePlaceholder slot={r.image} />
+              <ImagePlaceholder slot={r.image} sizes="(min-width: 1184px) 365px, (min-width: 768px) calc(33vw - 30px), calc(100vw - 40px)" />
               <Badge variant="secondary" className="mt-4 h-6 px-2.5 uppercase">
                 {r.client}
               </Badge>

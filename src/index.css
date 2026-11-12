@@ -20,11 +20,24 @@
   line-gap-override: 8.93%;
 }
 
+/* Metric-matched fallback for Teko 600 (uppercase headings): same line widths, so headings
+   do not re-wrap and push the content below when Teko loads (CLS). Arial Bold or a
+   metric-compatible clone. */
+@font-face {
+  font-family: "Teko Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold");
+  font-weight: 500 700;
+  size-adjust: 65.36%;
+  ascent-override: 146.56%;
+  descent-override: 72.67%;
+  line-gap-override: 0%;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans: "Poppins", "Poppins Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Teko", "Arial Narrow", sans-serif;
+  --font-heading: "Teko", "Teko Fallback", "Arial Narrow", sans-serif;
 
   /* Brand colors (in addition to the shadcn tokens below). */
   --color-brand: var(--brand);

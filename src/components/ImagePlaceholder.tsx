@@ -6,17 +6,24 @@ type Props = {
   slot: ImageSlot;
   className?: string;
   priority?: boolean;
+  sizes?: string; // rendered width, for srcset selection
 };
 
+const defaultSizes = '(min-width: 1024px) 560px, calc(100vw - 40px)';
+
 // Renders the image when `slot.src` is set, otherwise a labelled placeholder.
-export function ImagePlaceholder({ slot, className, priority }: Props) {
+export function ImagePlaceholder({ slot, className, priority, sizes = defaultSizes }: Props) {
   if (slot.src) {
+    // Intrinsic size from the ratio (e.g. "4 / 3"), so the image is never unsized.
+    const [w, h] = slot.ratio.split('/').map(Number);
     return (
       <img
         className={cn('w-full rounded-lg object-cover', className)}
         src={slot.src}
         srcSet={`${slot.src.replace(/\.webp$/, '-800.webp')} 800w, ${slot.src} 1600w`}
-        sizes="(min-width: 1024px) 560px, calc(100vw - 40px)"
+        sizes={sizes}
+        width={1600}
+        height={Math.round((1600 * h) / w)}
         alt={slot.alt}
         data-reveal={priority ? undefined : 'image'}
         style={{ aspectRatio: slot.ratio }}

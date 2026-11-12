@@ -48,7 +48,7 @@ export default function Realisations() {
         <div data-reveal="stagger" className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {shown.map((r) => (
             <Card key={r.id} className="gap-0 py-0">
-              <ImagePlaceholder slot={r.image} className="rounded-none" />
+              <ImagePlaceholder slot={r.image} className="rounded-none" sizes="(min-width: 1184px) 365px, (min-width: 1024px) calc(33vw - 30px), (min-width: 768px) calc(50vw - 32px), calc(100vw - 40px)" />
               <CardContent className="p-6">
                 <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-muted-foreground">
                   <Badge variant="secondary" className="h-6 px-2.5 uppercase">

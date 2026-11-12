@@ -1,7 +1,7 @@
 // Prerenders every route to static HTML after `vite build` (client) and
 // `vite build --ssr` (server). Also writes 404.html, legacy redirects, sitemap.xml,
 // robots.txt and llms.txt. Run with Node >= 23 (native TypeScript type stripping).
-import { readFile, writeFile, rm } from 'node:fs/promises';
+import { readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
@@ -24,7 +24,25 @@ const serverDir = path.join(root, 'dist-server');
 const entry = (await import(
   pathToFileURL(path.join(serverDir, 'entry-server.js')).href
 )) as ServerEntry;
-const template = await readFile(path.join(dist, 'index.html'), 'utf8');
+const template = await optimizeHead(await readFile(path.join(dist, 'index.html'), 'utf8'));
+
+// Inlines the stylesheet (no render-blocking request; GitHub Pages only caches for 10 min
+// anyway) and preloads the fonts used above the fold, which would otherwise only be
+// discovered once the CSS is parsed.
+async function optimizeHead(html: string) {
+  const link = html.match(/<link rel="stylesheet"[^>]*href="\/assets\/([^"]+\.css)">/);
+  if (!link) throw new Error('stylesheet link not found in dist/index.html');
+  const css = await readFile(path.join(dist, 'assets', link[1]), 'utf8');
+
+  const assets = await readdir(path.join(dist, 'assets'));
+  const preloads = ['teko-latin-600-normal', 'poppins-latin-400-normal'].map((font) => {
+    const file = assets.find((f) => f.startsWith(`${font}-`) && f.endsWith('.woff2'));
+    if (!file) throw new Error(`font ${font} not found in dist/assets`);
+    return `<link rel="preload" href="/assets/${file}" as="font" type="font/woff2" crossorigin>`;
+  });
+
+  return html.replace(link[0], () => `${preloads.join('\n    ')}\n    <style>${css}</style>`);
+}
 
 const fileFor = (route: string) => (route === '/' ? 'index.html' : `${route.slice(1)}.html`);
 

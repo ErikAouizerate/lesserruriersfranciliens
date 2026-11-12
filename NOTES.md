@@ -23,16 +23,25 @@ Things only you can do, in rough priority order. Open questions are in [QUESTION
 
 ## Deployment (GitHub Pages)
 - [x] Create the GitHub repository and push `main`.
-- [ ] Settings → Pages → Source: **GitHub Actions**.
-- [ ] Settings → Pages → Custom domain: `www.lesserruriersfranciliens.fr`, enable HTTPS.
-- [ ] OVH → domain `lesserruriersfranciliens.fr` → **DNS zone** (the zone already exists, do
-      not order a new one). Check the **DNS servers** tab uses OVH servers, then:
-  - delete the existing `A` / `AAAA` / `CNAME` records of the apex and `www` (keep MX/TXT);
-  - apex → 4 `A` records: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-  - `www` → `CNAME` → `erikaouizerate.github.io.`
-- [ ] If you still own `lesserruriersfranciliens.com` (old Squarespace site): redirect it to
-      `https://www.lesserruriersfranciliens.fr` once the new site is live, so its search
-      ranking carries over.
+- [x] Settings → Pages → Source: **GitHub Actions**.
+- [ ] Settings → Pages → Custom domain: `www.lesserruriersfranciliens.fr` (done, DNS check OK);
+      **enable "Enforce HTTPS"** once GitHub has issued the certificate.
+- [x] OVH DNS zone: apex → 4 `A` (185.199.108–111.153) + 4 `AAAA` (2606:50c0:8000–8003::153),
+      `www` → `CNAME` → `erikaouizerate.github.io.` (MX/SPF kept).
+- [ ] `lesserruriersfranciliens.com` (Squarespace): keep it there for 3 years, then:
+  - [ ] set up a permanent (301) redirect to `https://www.lesserruriersfranciliens.fr`,
+        so the old search ranking carries over;
+  - [ ] enable the transfer lock (disable outbound transfer) so it cannot be moved away.
+- [ ] Move the site to Guillaume's GitHub account:
+  - [ ] transfer the repository (Settings → General → Transfer ownership) or recreate it there;
+  - [ ] on the new repo: Settings → Pages → Source **GitHub Actions**, custom domain
+        `www.lesserruriersfranciliens.fr`, then Enforce HTTPS;
+  - [ ] re-add the Actions secret `VITE_WEB3FORMS_KEY` (check it survived the transfer);
+  - [ ] OVH DNS zone: change `www` → `CNAME` → `<guillaume-login>.github.io.`
+        (the apex `A` / `AAAA` records stay the same);
+  - [ ] optional: verify the domain on Guillaume's account (Settings → Pages → Add a domain,
+        TXT record `_github-pages-challenge-<guillaume-login>` in the OVH zone);
+  - [ ] update the local remote: `git remote set-url origin git@github.com:<guillaume-login>/lesserruriersfranciliens.git`.
 - [ ] **OVH**: update the contact information (phone +33 7 88 80 46 56, e-mail, address
       60 rue François Ier, 75008 Paris) on the OVH account / domain contacts.
 
