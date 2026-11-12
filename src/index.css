@@ -156,7 +156,7 @@
 @theme {
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --animate-rise: rise 0.9s var(--ease-out-quint) backwards;
-  --animate-settle: settle 1.4s var(--ease-out-quint) backwards;
+  --animate-settle: settle 1.2s var(--ease-out-quint) backwards;
 
   /* Fade up from slightly below. */
   @keyframes rise {
@@ -165,28 +165,17 @@
       translate: 0 1.5rem;
     }
   }
-  /*
-   * Hero image: no opacity change so it is painted at once (LCP).
-   * clip-path needs an explicit end value: inset() -> none does not interpolate
-   * and would snap halfway through.
-   */
+  /* Hero image: slight zoom only, no opacity change so it is painted at once (LCP). */
   @keyframes settle {
     from {
-      clip-path: inset(5% round 0.5rem);
-      scale: 1.04;
-    }
-    to {
-      clip-path: inset(0 round 0.5rem);
+      scale: 0.94;
     }
   }
-  /* Photos: mask wipe from the bottom. */
-  @keyframes unveil {
+  /* Photos: soft fade from the background with a slight zoom. */
+  @keyframes bloom {
     from {
-      clip-path: inset(100% 0 0 0);
-      translate: 0 1rem;
-    }
-    to {
-      clip-path: inset(0);
+      opacity: 0;
+      scale: 0.85;
     }
   }
 }
@@ -195,7 +184,7 @@
  * Scroll reveal, driven by src/components/ScrollReveal.tsx:
  *   data-reveal="up"      the element fades up
  *   data-reveal="stagger" its children fade up one after another
- *   data-reveal="image"   the photo is unveiled
+ *   data-reveal="image"   the photo fades in and grows slightly
  * Only elements below the fold at page load get data-reveal-state="pending" (hidden),
  * then "in" when they enter the viewport. Without JS everything stays visible.
  * Animations (not transitions) so the elements' own hover transitions are untouched.
@@ -212,7 +201,7 @@
     animation-delay: calc(var(--reveal-i, 0) * 90ms);
   }
   [data-reveal="image"][data-reveal-state="in"] {
-    animation: unveil 1.2s var(--ease-out-quint) backwards;
+    animation: bloom 1.1s var(--ease-out-quint) backwards;
   }
   [data-reveal="stagger"] > :nth-child(2) { --reveal-i: 1; }
   [data-reveal="stagger"] > :nth-child(3) { --reveal-i: 2; }
