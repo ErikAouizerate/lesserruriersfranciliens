@@ -17,7 +17,7 @@ export default function Zones() {
       </PageHeader>
 
       <Section>
-        <div className="mb-12 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+        <div data-reveal="stagger" className="mb-12 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
           <div className="space-y-4 text-muted-foreground">
             <p>
               Que vous gériez une copropriété à Paris, un parc locatif dans les Hauts-de-Seine ou
@@ -52,7 +52,7 @@ export default function Zones() {
         </div>
 
         <SectionHeading eyebrow="Départements & villes" title="Où intervenons-nous ?" />
-        <div className="grid gap-6 md:grid-cols-2">
+        <div data-reveal="stagger" className="grid gap-6 md:grid-cols-2">
           {zones.map((zone) => (
             <Card key={zone.code} className="p-2">
               <CardContent>

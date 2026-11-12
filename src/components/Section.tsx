@@ -63,7 +63,10 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn('mb-10 max-w-3xl', center && 'mx-auto text-center', className)}>
+    <div
+      data-reveal="stagger"
+      className={cn('mb-10 max-w-3xl', center && 'mx-auto text-center', className)}
+    >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       <Heading className="mb-3 text-4xl md:text-5xl">{title}</Heading>
       {lead && <p className="text-lg text-muted-foreground">{lead}</p>}

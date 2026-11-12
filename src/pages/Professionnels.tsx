@@ -41,7 +41,7 @@ export default function Professionnels() {
       {audiences.map((a, i) => (
         <Section key={a.id} id={a.id} tone={i % 2 ? 'paper' : 'default'}>
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className={cn(i % 2 && 'lg:order-2')}>
+            <div data-reveal="up" className={cn(i % 2 && 'lg:order-2')}>
               <IconBadge>
                 <a.icon className="size-6" aria-hidden />
               </IconBadge>
@@ -59,7 +59,7 @@ export default function Professionnels() {
 
       <Section tone="dark" id="modalites">
         <SectionHeading eyebrow="Modalités" title="Pensé pour les gestionnaires" />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div data-reveal="stagger" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {proTerms.map((t) => (
             <div key={t.title} className="border-t-[3px] border-brand pt-5">
               <h3 className="mb-2 text-2xl">{t.title}</h3>
@@ -67,7 +67,7 @@ export default function Professionnels() {
             </div>
           ))}
         </div>
-        <h3 className="mt-16 mb-7 text-3xl">Le déroulé d’un ordre de service</h3>
+        <h3 data-reveal="up" className="mt-16 mb-7 text-3xl">Le déroulé d’un ordre de service</h3>
         <ProcessSteps />
       </Section>
 

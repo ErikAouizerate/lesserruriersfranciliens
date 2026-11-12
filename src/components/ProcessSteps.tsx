@@ -2,7 +2,7 @@ import { processSteps } from '@/content/company';
 
 export function ProcessSteps() {
   return (
-    <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+    <ol data-reveal="stagger" className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
       {processSteps.map((step, i) => (
         <li key={step.title} className="border-t-[3px] border-brand pt-5">
           <span className="mb-2 block font-heading text-5xl leading-none text-brand" aria-hidden>

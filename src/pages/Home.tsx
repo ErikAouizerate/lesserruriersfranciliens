@@ -28,17 +28,17 @@ export default function Home() {
         />
         <div className="container-site relative grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <Eyebrow>Serrurerie & blindage · 7j/7</Eyebrow>
-            <h1 className="mb-6 text-5xl md:text-6xl xl:text-[4.25rem]">
+            <Eyebrow className="motion-safe:animate-rise">Serrurerie & blindage · 7j/7</Eyebrow>
+            <h1 className="mb-6 text-5xl motion-safe:animate-rise motion-safe:[animation-delay:80ms] md:text-6xl xl:text-[4.25rem]">
               Serrurier à Paris et en Île-de-France{' '}
               <span className="text-brand">au service des syndics et bailleurs</span>
             </h1>
-            <p className="mb-7 max-w-xl text-lg text-muted-foreground">
+            <p className="mb-7 max-w-xl text-lg text-muted-foreground motion-safe:animate-rise motion-safe:[animation-delay:180ms]">
               Syndics, bailleurs, gestionnaires et particuliers : une équipe d’artisans qualifiés
               pour vos dépannages d’urgence et vos travaux de serrurerie, avec des devis clairs et
               un compte-rendu à chaque intervention.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 motion-safe:animate-rise motion-safe:[animation-delay:280ms]">
               <Link to="/contact" className={buttonVariants({ size: 'xl' })}>
                 Demander un devis gratuit
               </Link>
@@ -53,7 +53,7 @@ export default function Home() {
                 {company.phone}
               </a>
             </div>
-            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground motion-safe:animate-rise motion-safe:[animation-delay:380ms]">
               {[company.hoursShort, 'Devis gratuit', 'Paris & Île-de-France'].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <span className="size-2 rotate-45 bg-brand" aria-hidden />
@@ -62,7 +62,7 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <ImagePlaceholder slot={images.hero} priority className="shadow-2xl shadow-black/35" />
+          <ImagePlaceholder slot={images.hero} priority className="shadow-2xl shadow-black/35 motion-safe:animate-settle" />
         </div>
       </section>
 
@@ -71,7 +71,7 @@ export default function Home() {
         <h2 id="engagements" className="sr-only">
           Nos engagements
         </h2>
-        <div className="container-site grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div data-reveal="stagger" className="container-site grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {commitments.map(({ icon: Icon, title, text }) => (
             <div key={title} className="flex items-start gap-4">
               <Icon className="size-7 shrink-0 text-brand-ink" aria-hidden />
@@ -87,7 +87,7 @@ export default function Home() {
       {/* Two paths */}
       <Section>
         <SectionHeading eyebrow="À chacun sa solution" title="Professionnel ou particulier ?" center />
-        <div className="grid gap-6 md:grid-cols-2">
+        <div data-reveal="stagger" className="grid gap-6 md:grid-cols-2">
           {[
             {
               slot: images.parcoursPro,
@@ -133,7 +133,7 @@ export default function Home() {
           title="Du dépannage au blindage"
           lead="Nous intervenons en urgence comme sur vos projets planifiés, avec du matériel sélectionné et certifié."
         />
-        <div className="grid gap-6 md:grid-cols-3">
+        <div data-reveal="stagger" className="grid gap-6 md:grid-cols-3">
           {services.map(({ id, icon: Icon, title, summary }) => (
             <Card key={id} className="p-3">
               <CardContent>
@@ -153,7 +153,7 @@ export default function Home() {
 
       {/* Why us: SEO-rich introduction */}
       <Section>
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+        <div data-reveal="stagger" className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>
             <Eyebrow>Pourquoi nous choisir</Eyebrow>
             <h2 className="mb-4 text-4xl md:text-5xl">
@@ -203,7 +203,7 @@ export default function Home() {
             Toutes nos réalisations <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div data-reveal="stagger" className="grid gap-6 md:grid-cols-3">
           {realisations.slice(0, 3).map((r) => (
             <article key={r.id}>
               <ImagePlaceholder slot={r.image} />
@@ -221,7 +221,7 @@ export default function Home() {
 
       {/* Zone */}
       <Section tone="cream">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <div data-reveal="stagger" className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <Eyebrow>Zone d’intervention</Eyebrow>
             <h2 className="mb-4 text-4xl md:text-5xl">Partout en Île-de-France</h2>
@@ -233,7 +233,7 @@ export default function Home() {
               Voir les villes desservies <ArrowRight className="size-4" aria-hidden />
             </Link>
           </div>
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <ul data-reveal="stagger" className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {company.departments.map((d) => (
               <li key={d.code} className="flex flex-col rounded-lg border-l-4 border-brand bg-background p-4">
                 <strong className="font-heading text-4xl leading-none">{d.code}</strong>

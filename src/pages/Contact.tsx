@@ -15,7 +15,7 @@ export default function Contact() {
       </PageHeader>
 
       <Section>
-        <div className="grid items-start gap-10 lg:grid-cols-[2fr_3fr]">
+        <div data-reveal="stagger" className="grid items-start gap-10 lg:grid-cols-[2fr_3fr]">
           <aside className="grid gap-7">
             <a
               href={company.phoneHref}

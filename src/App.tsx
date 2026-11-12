@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { MobileCallBar } from '@/components/MobileCallBar';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { HeadManager } from '@/components/HeadManager';
 import Home from '@/pages/Home';
 import Entreprise from '@/pages/Entreprise';
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <ScrollReveal />
       <HeadManager />
       <a
         href="#contenu"

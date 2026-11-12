@@ -45,7 +45,7 @@ export default function Realisations() {
           Exemples illustratifs, à remplacer par de vrais chantiers.
         </p>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div data-reveal="stagger" className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {shown.map((r) => (
             <Card key={r.id} className="gap-0 py-0">
               <ImagePlaceholder slot={r.image} className="rounded-none" />

@@ -18,6 +18,7 @@ export function ImagePlaceholder({ slot, className, priority }: Props) {
         srcSet={`${slot.src.replace(/\.webp$/, '-800.webp')} 800w, ${slot.src} 1600w`}
         sizes="(min-width: 1024px) 560px, calc(100vw - 40px)"
         alt={slot.alt}
+        data-reveal={priority ? undefined : 'image'}
         style={{ aspectRatio: slot.ratio }}
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : undefined}
@@ -34,6 +35,7 @@ export function ImagePlaceholder({ slot, className, priority }: Props) {
       )}
       style={{ aspectRatio: slot.ratio }}
       role="img"
+      data-reveal={priority ? undefined : 'image'}
       aria-label={slot.alt}
     >
       <ImageIcon className="size-7" aria-hidden />

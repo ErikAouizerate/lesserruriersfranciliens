@@ -26,7 +26,7 @@ export default function Entreprise() {
 
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
+          <div data-reveal="up">
             <Eyebrow>Qui sommes-nous</Eyebrow>
             <h2 className="mb-5 text-4xl md:text-5xl">Un service qualifié, un accompagnement complet</h2>
             <div className="space-y-4 text-muted-foreground">
@@ -54,7 +54,7 @@ export default function Entreprise() {
 
       <Section tone="dark">
         <h2 className="sr-only">Chiffres clés</h2>
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul data-reveal="stagger" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {figures.map((f) => (
             <li key={f.label} className="flex flex-col">
               <strong className="font-heading text-7xl leading-none text-brand">{f.value}</strong>
@@ -67,7 +67,7 @@ export default function Entreprise() {
 
       <Section tone="paper">
         <SectionHeading eyebrow="Notre charte" title="Cinq engagements, à chaque intervention" />
-        <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <ol data-reveal="stagger" className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {charter.map((item, i) => (
             <li key={item.title}>
               <Card className="h-full border-t-4 border-t-brand p-2">
@@ -86,7 +86,7 @@ export default function Entreprise() {
 
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
+          <div data-reveal="up">
             <Eyebrow>Garanties</Eyebrow>
             <h2 className="mb-5 text-4xl md:text-5xl">Travailler avec nous en toute sérénité</h2>
             <CheckList
@@ -104,7 +104,7 @@ export default function Entreprise() {
               Nos conditions pour les professionnels <ArrowRight className="size-4" aria-hidden />
             </Link>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div data-reveal="stagger" className="grid gap-5 sm:grid-cols-2">
             {commitments.map(({ icon: Icon, title, text }) => (
               <Card key={title} className="p-2">
                 <CardContent>

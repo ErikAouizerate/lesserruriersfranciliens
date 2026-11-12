@@ -15,7 +15,7 @@ export function CtaBand({
 }: Props) {
   return (
     <section className="bg-brand py-12 text-ink md:py-18">
-      <div className="container-site grid items-center gap-x-12 gap-y-6 lg:grid-cols-2">
+      <div data-reveal="stagger" className="container-site grid items-center gap-x-12 gap-y-6 lg:grid-cols-2">
         <div>
           <h2 className="mb-2 text-4xl md:text-5xl">{title}</h2>
           <p className="max-w-xl">{text}</p>

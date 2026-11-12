@@ -34,7 +34,7 @@ export default function Competences() {
       {services.map((service, i) => (
         <Section key={service.id} id={service.id} tone={i % 2 ? 'paper' : 'default'}>
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className={cn(i % 2 && 'lg:order-2')}>
+            <div data-reveal="up" className={cn(i % 2 && 'lg:order-2')}>
               <IconBadge>
                 <service.icon className="size-6" aria-hidden />
               </IconBadge>
@@ -43,7 +43,7 @@ export default function Competences() {
             </div>
             <ImagePlaceholder slot={service.image} />
           </div>
-          <div className="mt-12 grid gap-x-10 gap-y-6 md:grid-cols-2">
+          <div data-reveal="stagger" className="mt-12 grid gap-x-10 gap-y-6 md:grid-cols-2">
             {service.items.map((item) => (
               <div key={item.title} className="border-t-2 pt-6">
                 <h3 className="mb-2 text-3xl">{item.title}</h3>
@@ -60,7 +60,7 @@ export default function Competences() {
           title="Comprendre la certification A2P"
           lead="Délivrée après des tests de résistance à l’effraction, la certification A2P classe serrures et cylindres en trois niveaux. Elle est souvent exigée par les assureurs : nous vous aidons à choisir le niveau adapté."
         />
-        <Table className="min-w-xl text-base">
+        <Table data-reveal="up" className="min-w-xl text-base">
           <TableHeader>
             <TableRow className="hover:bg-transparent">
               <TableHead className="text-xs tracking-widest text-muted-foreground uppercase">Niveau</TableHead>
@@ -89,8 +89,8 @@ export default function Competences() {
           toujours les exigences de votre contrat d’assurance.
         </p>
 
-        <h2 className="mt-16 mb-6 text-4xl md:text-5xl">3, 5 ou 7 points : quelle serrure multipoints ?</h2>
-        <div className="grid gap-5 md:grid-cols-3">
+        <h2 data-reveal="up" className="mt-16 mb-6 text-4xl md:text-5xl">3, 5 ou 7 points : quelle serrure multipoints ?</h2>
+        <div data-reveal="stagger" className="grid gap-5 md:grid-cols-3">
           {lockPoints.map((p) => (
             <div key={p.points} className="rounded-lg border bg-card p-6">
               <strong className="mb-1 block font-heading text-5xl leading-none text-brand">{p.points}</strong>
